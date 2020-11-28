@@ -1,0 +1,9 @@
+:host ::ng-deep  .p-menuitem-icon {
+    color:red !important;
+}
+ :host ::ng-deep .p-menuitem-text	{
+   color:rgb(4, 141, 61) !important;
+ }
+ :host ::ng-deep .p-menubar{
+     background-color: aqua;
+ }

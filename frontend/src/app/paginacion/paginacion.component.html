@@ -1,0 +1,26 @@
+<div class="card">
+    <h5>Implicit Pagination</h5>
+    <p-table [value]="usuarios" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">Id<p-sortIcon field="ide"></p-sortIcon></th>
+                <th pSortableColumn="firstname">Firstname <p-sortIcon field="firstname"></p-sortIcon></th>
+                <th pSortableColumn="lastname">Lastname <p-sortIcon field="lastname"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-usuario>
+            <tr>
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.firstname}}</td>
+                <td>{{usuario.lastname}}</td>
+            </tr>
+        </ng-template>usuarios <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>
+

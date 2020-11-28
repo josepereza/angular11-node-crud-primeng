@@ -1,0 +1,56 @@
+<p-table [value]="usuarios">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Actions</th>
+            <th><button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                    (click)="showDialog()"></button>
+            </th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                    (click)="editUser(user)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                    (click)="deleteUser(user)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-dialog header="Title" [(visible)]="display">
+    <app-altas></app-altas>
+    <button (click)=salir() label="Salir" pButton type="button" icon="pi pi-sign-out
+    " iconPos="left" style="width: 80%; margin-left: 10%;"></button>
+
+
+</p-dialog>
+
+<p-dialog header="Title" [(visible)]="display2">
+    <h5>Editar</h5>
+    <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-6">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText placeholder="Firstname" [(ngModel)]="nombre.firstname">
+            </div>
+        </div>
+
+        <div class="p-col-12 p-md-6">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText placeholder="Lastname" [(ngModel)]="nombre.lastname">
+            </div>
+        </div>
+        <button (click)="update()" label="GRABAR" pButton type="button" icon="pi pi-check" iconPos="left"></button>
+
+    </div>
+
+</p-dialog>
